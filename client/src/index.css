@@ -921,3 +921,160 @@ footer {
 .badge-error {
   color: #dc3545;
 }
+
+/* Header Nav */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.nav-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.nav-link.active {
+  color: var(--accent-primary);
+  background: var(--bg-secondary);
+}
+
+/* Versao Page */
+.versao-page {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.versao-content {
+  flex: 1;
+}
+
+.versao-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.versao-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.versao-icon {
+  font-size: 1.5rem;
+}
+
+.versao-card-header h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Loading state */
+.versao-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.versao-spinner {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid var(--border-color);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: versao-spin 0.7s linear infinite;
+}
+
+@keyframes versao-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error state */
+.versao-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.versao-error-icon {
+  font-size: 1.5rem;
+}
+
+.versao-error p {
+  font-size: 0.875rem;
+  color: var(--accent-danger);
+  font-weight: 500;
+  margin: 0;
+}
+
+.versao-error small {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  word-break: break-all;
+}
+
+/* Result state */
+.versao-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.versao-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.versao-label code {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  color: var(--accent-primary);
+}
+
+.versao-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.versao-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
