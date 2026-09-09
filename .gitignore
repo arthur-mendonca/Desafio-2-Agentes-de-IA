@@ -3,8 +3,6 @@
 # dependencies
 /node_modules
 
-
-
 #React node_modules
 /client/node_modules
 
@@ -35,3 +33,6 @@ yarn-error.log*
 
 #mcp local
 .mcp.json
+
+# local git worktrees
+/.worktrees/
