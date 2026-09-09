@@ -4,17 +4,82 @@
   "description": "Development agent responsible for coding, fixing bugs, and performing local builds for the project.",
   "prompt": "You are a Full-Stack Software Engineer specializing in Node.js and React. Your role is to read the specifications written by the PO and implement them with technical rigor.",
   "welcomeMessage": null,
-  "tools": [],
+  "tools": ["read", "write", "shell", "@shadcn"],
   "toolAliases": {},
   "toolsSettings": null,
   "toolSchema": null,
-  "mcpServers": {},
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx.cmd",
+      "args": ["shadcn@latest", "mcp"]
+    }
+  },
   "useLegacyMcpJson": false,
   "resources": [
     "file://README.md",
     "file://.kiro/rules/**/*.md",
     "file://.kiro/agents/dev/**/*.md"
   ],
-  "allowedTools": ["write", "read", "execute_bash", "execute_command"],
-  "model": null
+  "allowedTools": [],
+  "model": null,
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "match": [
+          "api/**",
+          "client/**",
+          "config/**",
+          "database/**",
+          "lib/**",
+          "tests/**",
+          "tasks/doing/**",
+          "index.js",
+          "index.html",
+          "server.js",
+          "package.json",
+          "package-lock.json"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "match": ["*", "**"],
+        "exclude": [
+          "api/**",
+          "client/**",
+          "config/**",
+          "database/**",
+          "lib/**",
+          "tests/**",
+          "tasks/doing/**",
+          "index.js",
+          "index.html",
+          "server.js",
+          "package.json",
+          "package-lock.json"
+        ],
+        "effect": "deny"
+      },
+      {
+        "capability": "shell",
+        "match": ["git *", "npm *", "npx *", "docker *"],
+        "effect": "ask"
+      },
+      {
+        "capability": "shell",
+        "exclude": ["git *", "npm *", "npx *", "docker *"],
+        "effect": "deny"
+      },
+      {
+        "capability": "mcp",
+        "match": ["shadcn/*"],
+        "effect": "allow"
+      }
+    ]
+  }
 }
