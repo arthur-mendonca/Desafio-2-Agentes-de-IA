@@ -236,16 +236,6 @@ body {
   border-color: var(--accent-primary);
 }
 
-/* Seletor de data nativo */
-.form-control input[type="date"] {
-  color-scheme: light;
-  cursor: pointer;
-}
-
-[data-theme="dark"] .form-control input[type="date"] {
-  color-scheme: dark;
-}
-
 .form-control-check {
   display: flex;
   align-items: center;
@@ -1087,4 +1077,15 @@ footer {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+}
+
+
+/* Seletor de data nativo */
+.form-control input[type="date"] {
+  color-scheme: light;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .form-control input[type="date"] {
+  color-scheme: dark;
 }
