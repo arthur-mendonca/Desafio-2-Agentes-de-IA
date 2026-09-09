@@ -1,0 +1,20 @@
+{
+  "$schema": "",
+  "name": "po",
+  "description": "Agent responsible for specifying tasks, maintaining the backlog, and managing feature cards..",
+  "prompt": "You are an experienced Product Owner for the application. Your role is to translate business needs into detailed technical specifications in the form of Markdown tasks within the `tasks/` folder.",
+  "welcomeMessage": null,
+  "tools": [],
+  "toolAliases": {},
+  "toolsSettings": null,
+  "toolSchema": null,
+  "mcpServers": {},
+  "useLegacyMcpJson": false,
+  "resources": [
+    "file://README.md",
+    "file://.kiro/rules/**/*.md",
+    "file://.kiro/agents/po/**/*.md"
+  ],
+  "allowedTools": ["write", "read"],
+  "model": null
+}

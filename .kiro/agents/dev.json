@@ -1,0 +1,20 @@
+{
+  "$schema": "",
+  "name": "dev",
+  "description": "Development agent responsible for coding, fixing bugs, and performing local builds for the project.",
+  "prompt": "You are a Full-Stack Software Engineer specializing in Node.js and React. Your role is to read the specifications written by the PO and implement them with technical rigor.",
+  "welcomeMessage": null,
+  "tools": [],
+  "toolAliases": {},
+  "toolsSettings": null,
+  "toolSchema": null,
+  "mcpServers": {},
+  "useLegacyMcpJson": false,
+  "resources": [
+    "file://README.md",
+    "file://.kiro/rules/**/*.md",
+    "file://.kiro/agents/dev/**/*.md"
+  ],
+  "allowedTools": ["write", "read", "execute_bash", "execute_command"],
+  "model": null
+}
