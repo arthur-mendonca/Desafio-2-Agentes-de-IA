@@ -1,21 +1,57 @@
-# Task Specification Process
+# Task Specification and Worktree Process
 
-1. Whenever the user requests a new feature or change, you must:
+1. **Create sequential task specifications**
 
-- Read the `tasks/sequencial.md` file to identify the ID of the last created task [33, 34].
-- Increment the ID by 1 (e.g., if the last one was 003, the new one will be 004) [33, 35].
-- Immediately update the `tasks/sequencial.md` file to persist the new ID [33, 34].
+- Read `tasks/sequencial.md` to identify the last task ID.
+- Increment the ID once for each new task and immediately persist the last allocated ID.
+- Create each card under `tasks/` using `tasks/XXX-fit-task-name.md`, where XXX is the three-digit ID.
+- Accepted filename types are `fit`, `fix`, and `test`.
 
-2. Create the specification in a file within the `tasks/` folder, strictly following this naming convention:
-   `tasks/XXX-fit-task-name.md` (where XXX is the three-digit ID) [21, 31, 36].
-   _Note: Accepted types in the filename: 'fit' (features), 'fix' (fixes), or 'test' [31]._
+2. **Required card content**
 
-3. The card file content must include:
+Every card must include:
 
-- **User Story** and screen **Objectives** [36, 37].
-- Well-defined **Acceptance Criteria** [36].
-- A clear **Definition of Done (DoD)** [36].
-- An instructions section explicitly delegating the start of the task to the **dev** agent [38, 39].
-- Steps instructing the Dev to check the current branch and move the card to the `tasks/doing/` folder [39-41].
+- User Story and objective.
+- Clear acceptance criteria.
+- Definition of Done.
+- Technical constraints and verification commands.
+- Explicit delegation to the `dev` agent.
+- A unique suggested feature branch and worktree path.
+- Instructions to verify the current branch and move only that card to `tasks/doing/`.
 
-4. Upon completion, notify the user for review and explicitly ask if you may **commit and push** the created task and the updated sequential file to the remote repository [42].
+3. **Review and publish specifications**
+
+- Show the created files with `git status --short` and `git diff`.
+- Ask the user before committing or pushing.
+- Never push task specifications directly to `main`; use a planning branch and a pull request.
+
+4. **Create one isolated worktree per approved task**
+
+After the task specifications are merged and the primary checkout is synchronized with `main`, use:
+
+```bash
+git switch main
+git pull --ff-only
+git worktree add .worktrees/XXX-task-name -b feat/XXX-task-name main
+```
+
+Rules:
+
+- Each worktree must have a unique directory and a unique feature branch.
+- Never reuse a branch that is already checked out in another worktree.
+- Run `git worktree list` and report the directory-to-branch mapping.
+- Start the `dev` agent from inside the worktree assigned to its task.
+- Do not instruct a developer to switch branches inside a worktree.
+- Do not install or require the GitHub CLI.
+
+5. **Pull request and cleanup**
+
+- Each task must be committed and pushed from its own worktree and feature branch.
+- Open one pull request per branch against `main`.
+- If the second pull request conflicts after the first is merged, resolve it inside the second worktree, rerun verification, and push the resolution.
+- Remove a worktree only after its pull request is merged:
+
+```bash
+git worktree remove .worktrees/XXX-task-name
+git worktree prune
+```
