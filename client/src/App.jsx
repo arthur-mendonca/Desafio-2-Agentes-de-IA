@@ -6,6 +6,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Tasks from "./components/Tasks.jsx";
 import AddTask from "./components/AddTask.jsx";
+import TaskSummary from "./components/TaskSummary.jsx";
 import Modal from "./components/Modal.jsx";
 import About from "./components/About.jsx";
 import Versao from "./components/Versao.jsx";
@@ -210,6 +211,7 @@ function AppContent() {
   const HomePage = () => (
     <>
       <AddTask onAdd={addTask} />
+      <TaskSummary tasks={tasks} />
       {tasks.length > 0 ? (
         <Tasks
           tasks={tasks}
