@@ -1,27 +1,41 @@
-# Secure Development Guidelines (Feature Branch)
+# Secure Development Guidelines (Isolated Worktree)
 
-1. **Initial Branch Validation:**
+1. **Validate the isolated workspace before editing**
 
-- Before touching any line of code, verify that you are on the base branch: `main` [41, 45]. If not, switch to it or alert the user [41].
+- Run `pwd`, `git branch --show-current`, and `git status --short`.
+- The current branch must be the feature branch assigned to the task.
+- If the current branch is `main`, stop and alert the user. Never implement a task directly on `main`.
 
-2. **Starting Work (Signal the Team):**
+2. **Preserve worktree isolation**
 
-- Move the task file you are working on from `tasks/` to `tasks/doing/` [40, 41].
-- Commit and **push directly to the `main` branch** stating that the task has started [41]. This prevents other agents from picking up the same task [41, 46].
+- Work only inside the current worktree and current feature branch.
+- Do not switch to another task branch.
+- Do not create, remove, or modify another worktree.
+- Never push directly to `main`.
 
-3. **Feature Isolation:**
+3. **Start the assigned task**
 
-- Create and switch to a dedicated feature branch derived from `main`, following this pattern:
-  `ia-feat-XXX-task-summary` (where XXX is the task ID) [41, 47, 48].
+- Move only the assigned card from `tasks/` to `tasks/doing/` with `git mv`.
+- Do not move or edit cards assigned to another worktree.
+- Recheck `git status --short` before changing application code.
 
-4. **Technical Execution:**
+4. **Implement and verify**
 
-- Make changes to the files according to the specification [49].
-- As you complete sub-requirements, edit the task file in `tasks/doing/` and mark checklist items as done `[x]` [50, 51].
-- Recompile and test locally using commands such as:
-  `docker compose build server` and `docker compose app -d` to test in the environment [52].
+- Implement every acceptance criterion in the task specification.
+- Keep changes limited to the assigned task.
+- Update the checklist in the card as requirements are completed.
+- Run the relevant verification commands. For backend changes, run `npm test`. For frontend changes, run `npm run build` inside `client/`. Run both when applicable.
+- Record the real command output; never claim that a file, commit, push, build, or test exists without verifying it.
 
-5. **Finalization:**
+5. **Finish on the feature branch**
 
-- Commit code changes and push them to the remote repository (push to your feature branch) [48, 53].
-- Respond stating that the implementation is complete and indicate the next responsible agent (e.g., QA for testing or PO for opening a Pull Request and merging the code) [50, 54, 55].
+- Review `git status --short` and `git diff`.
+- Commit the implementation on the current feature branch.
+- Push only the current feature branch.
+- Do not use `gh`; report the branch name and commit hash so the pull request can be opened through GitHub.
+- Report tests/builds that passed or failed and any remaining checklist items.
+
+6. **After implementation**
+
+- Leave pull request review, merge, task finalization, and worktree removal to the PO or project operator.
+- A worktree may be removed only after its pull request is merged.
