@@ -45,14 +45,14 @@ a formatação de exibição.
 
 ## Definition of Done
 
-- [ ] `AddTask.jsx` usa `<input type="date">` no lugar do campo textual.
-- [ ] Envio sem data funciona (campo opcional mantido).
-- [ ] `Task.jsx` formata `YYYY-MM-DD` → `DD/MM/AAAA` usando split (sem `new Date(string)`).
-- [ ] Tarefas sem data exibem `"Sem data definida"`.
-- [ ] Nenhuma dependência nova instalada (`package.json` inalterado).
-- [ ] Nenhum componente, rota ou página criados além dos alterados.
-- [ ] CSS adicionado apenas em `client/src/index.css`.
-- [ ] `npm run build` passa sem erros dentro de `client/`.
+- [x] `AddTask.jsx` usa `<input type="date">` no lugar do campo textual.
+- [x] Envio sem data funciona (campo opcional mantido).
+- [x] `Task.jsx` formata `YYYY-MM-DD` → `DD/MM/AAAA` usando split (sem `new Date(string)`).
+- [x] Tarefas sem data exibem `"Sem data definida"`.
+- [x] Nenhuma dependência nova instalada (`package.json` inalterado).
+- [x] Nenhum componente, rota ou página criados além dos alterados.
+- [x] CSS adicionado apenas em `client/src/index.css`.
+- [x] `npm run build` passa sem erros dentro de `client/`.
 
 ---
 
@@ -93,3 +93,16 @@ npm run build
 3. Implemente as alterações nos três arquivos indicados.
 4. Valide com `npm run build` dentro de `client/`.
 5. Faça commit e push a partir deste worktree.
+
+---
+
+## Evidências
+
+| Item | Detalhe |
+|---|---|
+| **Branch** | `feat/003-seletor-data` |
+| **Pull Request** | https://github.com/arthur-mendonca/Desafio-2-Agentes-de-IA/pull/5 |
+| **Build do cliente** | Aprovado |
+| **Resolução de conflito** | Conflito em `index.css` resolvido no commit `684f3e8` |
+| **GitHub Actions** | Aprovado |
+| **Status do PR** | Mesclado |
