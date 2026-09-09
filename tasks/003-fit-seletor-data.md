@@ -88,7 +88,7 @@ npm run build
    `feat/003-seletor-data`.
 2. Mova **somente este arquivo** para `tasks/doing/` antes de começar:
    ```bash
-   mv tasks/003-fit-seletor-data.md tasks/doing/
+   git mv tasks/003-fit-seletor-data.md tasks/doing/
    ```
 3. Implemente as alterações nos três arquivos indicados.
 4. Valide com `npm run build` dentro de `client/`.
