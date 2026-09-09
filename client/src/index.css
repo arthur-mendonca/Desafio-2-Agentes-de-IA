@@ -1080,6 +1080,16 @@ footer {
 }
 
 
+/* Seletor de data nativo */
+.form-control input[type="date"] {
+  color-scheme: light;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .form-control input[type="date"] {
+  color-scheme: dark;
+}
+
 /* Task Summary */
 .task-summary {
   padding: 1rem 1.5rem;

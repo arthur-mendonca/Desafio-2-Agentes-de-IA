@@ -17,7 +17,7 @@ const AddTask = ({ onAdd }) => {
 
     onAdd({ 
       titulo: titulo.trim(), 
-      dia_atividade: dia || new Date().toLocaleDateString('pt-BR'), 
+      dia_atividade: dia, 
       importante 
     });
 
@@ -41,8 +41,7 @@ const AddTask = ({ onAdd }) => {
       <div className="form-control">
         <label>Data/Prazo</label>
         <input
-          type="text"
-          placeholder="Quando?"
+          type="date"
           value={dia}
           onChange={(e) => setDia(e.target.value)}
         />
