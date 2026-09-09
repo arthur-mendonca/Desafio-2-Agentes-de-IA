@@ -107,3 +107,15 @@ npm run build
 3. Implemente as alterações nos arquivos indicados e crie `TaskSummary.jsx`.
 4. Valide com `npm run build` dentro de `client/`.
 5. Faça commit e push a partir deste worktree.
+
+---
+
+## Evidências
+
+| Item | Detalhe |
+|---|---|
+| **Branch** | `feat/004-resumo-tarefas` |
+| **Pull Request** | https://github.com/arthur-mendonca/Desafio-2-Agentes-de-IA/pull/6 |
+| **Build do cliente** | Aprovado |
+| **GitHub Actions** | Aprovado |
+| **Status do PR** | Mesclado |
