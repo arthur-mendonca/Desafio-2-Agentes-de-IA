@@ -1,6 +1,16 @@
 import React from "react";
 import { FaTimes, FaStar, FaRegStar } from "react-icons/fa";
 
+const formatDate = (value) => {
+  if (!value) return "Sem data definida";
+  // Formato YYYY-MM-DD → DD/MM/AAAA (sem usar new Date para evitar erro de fuso horário)
+  const parts = value.split("-");
+  if (parts.length === 3) {
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  }
+  return value;
+};
+
 const Task = ({ task, onDelete, onToggle }) => {
   return (
     <div
@@ -10,7 +20,7 @@ const Task = ({ task, onDelete, onToggle }) => {
       <div className="task-content">
         <h3>{task.titulo}</h3>
         <p className="task-date">
-          📅 {task.dia_atividade || "Sem data definida"}
+          📅 {formatDate(task.dia_atividade)}
         </p>
       </div>
       <div className="task-actions">
