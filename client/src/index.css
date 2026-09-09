@@ -1089,3 +1089,57 @@ footer {
 [data-theme="dark"] .form-control input[type="date"] {
   color-scheme: dark;
 }
+
+/* Task Summary */
+.task-summary {
+  padding: 1rem 1.5rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.summary-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.summary-count {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.summary-bar-track {
+  height: 6px;
+  background: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.summary-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.summary-bar-total {
+  background: var(--accent-primary);
+}
+
+.summary-bar-important {
+  background: var(--accent-success);
+}
+
+.summary-bar-regular {
+  background: var(--text-secondary);
+}
