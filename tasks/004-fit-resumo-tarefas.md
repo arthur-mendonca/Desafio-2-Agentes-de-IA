@@ -102,7 +102,7 @@ npm run build
    `feat/004-resumo-tarefas`.
 2. Mova **somente este arquivo** para `tasks/doing/` antes de começar:
    ```bash
-   mv tasks/004-fit-resumo-tarefas.md tasks/doing/
+   git mv tasks/004-fit-resumo-tarefas.md tasks/doing/
    ```
 3. Implemente as alterações nos arquivos indicados e crie `TaskSummary.jsx`.
 4. Valide com `npm run build` dentro de `client/`.
