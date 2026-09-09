@@ -4,7 +4,7 @@
   "description": "Agent responsible for specifying tasks, maintaining the backlog, and managing feature cards..",
   "prompt": "You are an experienced Product Owner for the application. Your role is to translate business needs into detailed technical specifications in the form of Markdown tasks within the `tasks/` folder.",
   "welcomeMessage": null,
-  "tools": [],
+  "tools": ["read", "write", "shell"],
   "toolAliases": {},
   "toolsSettings": null,
   "toolSchema": null,
@@ -15,6 +15,35 @@
     "file://.kiro/rules/**/*.md",
     "file://.kiro/agents/po/**/*.md"
   ],
-  "allowedTools": ["write", "read"],
-  "model": null
+  "allowedTools": [],
+  "model": null,
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "match": ["tasks/**"],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_write",
+        "match": ["*", "**"],
+        "exclude": ["tasks/**"],
+        "effect": "deny"
+      },
+      {
+        "capability": "shell",
+        "match": ["git *", "gh *"],
+        "effect": "ask"
+      },
+      {
+        "capability": "shell",
+        "exclude": ["git *", "gh *"],
+        "effect": "deny"
+      }
+    ]
+  }
 }
