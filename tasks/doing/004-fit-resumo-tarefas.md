@@ -46,15 +46,15 @@ possui ao menos os campos `uuid`, `titulo` e `importante` (boolean).
 
 ## Definition of Done
 
-- [ ] `TaskSummary.jsx` criado em `client/src/components/`.
-- [ ] Exibe total, importantes e regulares calculados a partir da prop `tasks`.
-- [ ] Barras horizontais proporcionais feitas somente com CSS.
-- [ ] Componente inserido em `App.jsx` acima de `<Tasks>` (ou do bloco `tasks.length > 0`).
-- [ ] Componente não aparece quando não há tarefas.
-- [ ] Nenhuma dependência nova instalada (`package.json` inalterado).
-- [ ] Nenhum componente de rota ou página criados além dos indicados.
-- [ ] CSS adicionado apenas em `client/src/index.css`.
-- [ ] `npm run build` passa sem erros dentro de `client/`.
+- [x] `TaskSummary.jsx` criado em `client/src/components/`.
+- [x] Exibe total, importantes e regulares calculados a partir da prop `tasks`.
+- [x] Barras horizontais proporcionais feitas somente com CSS.
+- [x] Componente inserido em `App.jsx` acima de `<Tasks>` (ou do bloco `tasks.length > 0`).
+- [x] Componente não aparece quando não há tarefas.
+- [x] Nenhuma dependência nova instalada (`package.json` inalterado).
+- [x] Nenhum componente de rota ou página criados além dos indicados.
+- [x] CSS adicionado apenas em `client/src/index.css`.
+- [x] `npm run build` passa sem erros dentro de `client/`.
 
 ---
 
